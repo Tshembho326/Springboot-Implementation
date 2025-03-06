@@ -1,13 +1,15 @@
 package com.Hotel.RoyalStar.Models;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 
+@Builder
 @Entity
 @Table
 public class Lecture {
     @Id
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
+            strategy = GenerationType.AUTO,
             generator = "lecture_sequence"
     )
     @SequenceGenerator(

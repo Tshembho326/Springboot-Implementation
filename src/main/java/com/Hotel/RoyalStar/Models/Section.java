@@ -2,14 +2,16 @@ package com.Hotel.RoyalStar.Models;
 
 
 import jakarta.persistence.*;
+import lombok.Builder;
 
+@Builder
 @Entity
 @Table
 public class Section {
 
     @Id
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
+            strategy = GenerationType.AUTO,
             generator = "section_generator"
     )
     @SequenceGenerator(
@@ -19,19 +21,25 @@ public class Section {
     )
     private Integer id;
     private String name;
-    private String order;
+    private String sectionOrder;
+
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    Course course;
 
     public Section() {}
 
-    public Section(String name, String order) {
+    public Section(String name, String sectionOrder, Course course) {
         this.name = name;
-        this.order = order;
+        this.sectionOrder = sectionOrder;
+        this.course = course;
     }
 
-    public Section(int id, String name, String order) {
+    public Section(int id, String name, String sectionOrder, Course course) {
         this.id = id;
         this.name = name;
-        this.order = order;
+        this.sectionOrder = sectionOrder;
+        this.course = course;
     }
 
     public Integer getId() {
@@ -50,12 +58,12 @@ public class Section {
         this.name = name;
     }
 
-    public String getOrder() {
-        return order;
+    public String getSectionOrder() {
+        return sectionOrder;
     }
 
-    public void setOrder(String order) {
-        this.order = order;
+    public void setSectionOrder(String sectionOrder) {
+        this.sectionOrder = sectionOrder;
     }
 
     @Override
@@ -63,7 +71,7 @@ public class Section {
         return "Section{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", order='" + order + '\'' +
+                ", sectionOrder='" + sectionOrder + '\'' +
                 '}';
     }
 }

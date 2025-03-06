@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
+import java.util.List;
+
 @Builder
 @AllArgsConstructor
 @Entity
@@ -31,14 +33,18 @@ public class Author {
     private String email;
     private int age;
 
+    @ManyToMany(mappedBy = "authors")
+    List<Course> courses;
+
     public Author() {
     }
 
-    public Author(String firstName, String lastName, String email, int age) {
+    public Author(String firstName, String lastName, String email, int age, List<Course> courses) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.age = age;
+        this.courses = courses;
     }
 
     public String getLastName() {
