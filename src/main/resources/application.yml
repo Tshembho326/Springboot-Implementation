@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: RoyalStar
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/RoyalStarHotel
+    username: postgres
+    password: tShembho2003
+    driver-class-name: Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+  show-sql: true
+  properties:
+    hibernate:
+      format_sql: ture
+
+    database: postgresql
+
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
