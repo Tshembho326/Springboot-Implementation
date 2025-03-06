@@ -3,21 +3,19 @@ spring:
     name: RoyalStar
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/RoyalStarHotel
+    url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: tShembho2003
-    driver-class-name: Driver
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create
 
   show-sql: true
   properties:
     hibernate:
-      format_sql: ture
+      format_sql: true
 
     database: postgresql
-
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-

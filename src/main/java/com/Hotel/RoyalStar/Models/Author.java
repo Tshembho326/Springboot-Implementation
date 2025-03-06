@@ -17,7 +17,7 @@ public class Author {
             strategy = GenerationType.SEQUENCE,
             generator = "author_sequence"
     )
-    private int id;
+    private Integer id;
 
 
     private String firstName;

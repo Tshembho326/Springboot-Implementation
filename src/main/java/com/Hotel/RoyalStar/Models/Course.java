@@ -1,8 +1,6 @@
 package com.Hotel.RoyalStar.Models;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Table
@@ -17,7 +15,7 @@ public class Course {
             strategy = GenerationType.AUTO,
             generator = "course_sequence"
     )
-    private int id;
+    private Integer id;
 
     private String description;
 
