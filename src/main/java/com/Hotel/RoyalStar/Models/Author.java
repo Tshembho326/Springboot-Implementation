@@ -3,28 +3,16 @@ package com.Hotel.RoyalStar.Models;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
-@Builder
-@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@SuperBuilder
 @Entity
 @Table
-public class Author {
-
-    @Id
-
-    @SequenceGenerator(
-            name = "author_sequence",
-            sequenceName = "author_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "author_sequence"
-    )
-    private Integer id;
-
+public class Author extends BaseEntity {
 
     private String firstName;
     private String lastName;
@@ -63,13 +51,6 @@ public class Author {
         this.firstName = firstName;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getEmail() {
         return email;
@@ -90,7 +71,6 @@ public class Author {
     @Override
     public String toString() {
         return "Author{" +
-                "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +

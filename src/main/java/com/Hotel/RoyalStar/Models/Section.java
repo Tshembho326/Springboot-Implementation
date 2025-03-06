@@ -3,25 +3,17 @@ package com.Hotel.RoyalStar.Models;
 
 import jakarta.persistence.*;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
-@Builder
+@EqualsAndHashCode(callSuper = true)
+@SuperBuilder
 @Entity
 @Table
-public class Section {
+public class Section extends BaseEntity{
 
-    @Id
-    @GeneratedValue(
-            strategy = GenerationType.AUTO,
-            generator = "section_generator"
-    )
-    @SequenceGenerator(
-            name = "sequence_generator",
-            sequenceName = "sequence_generator",
-            allocationSize = 1
-    )
-    private Integer id;
     private String name;
     private String sectionOrder;
 
@@ -41,21 +33,6 @@ public class Section {
         this.lectures = lectures;
     }
 
-    public Section(int id, String name, String sectionOrder, Course course, List<Lecture> lectures) {
-        this.id = id;
-        this.name = name;
-        this.sectionOrder = sectionOrder;
-        this.course = course;
-        this.lectures = lectures;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -76,9 +53,10 @@ public class Section {
     @Override
     public String toString() {
         return "Section{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", sectionOrder='" + sectionOrder + '\'' +
+                ", course=" + course +
+                ", lectures=" + lectures +
                 '}';
     }
 }

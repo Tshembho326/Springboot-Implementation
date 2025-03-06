@@ -2,25 +2,16 @@ package com.Hotel.RoyalStar.Models;
 
 import jakarta.persistence.*;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
-@Builder
+@EqualsAndHashCode(callSuper = true)
+@SuperBuilder
 @Entity
 @Table
-public class Course {
-    @Id
-    @SequenceGenerator(
-            name = "course_sequence",
-            sequenceName = "course_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.AUTO,
-            generator = "course_sequence"
-    )
-    private Integer id;
-
+public class Course extends BaseEntity{
     private String description;
 
     @ManyToMany
@@ -49,12 +40,6 @@ public class Course {
         this.sections = sections;
     }
 
-    public Course(int id, String description, List<Author> authors, List<Section> sections) {
-        this.id = id;
-        this.description = description;
-        this.authors = authors;
-        this.sections = sections;
-    }
 
     public String getDescription() {
         return description;
@@ -64,20 +49,12 @@ public class Course {
         this.description = description;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     @Override
     public String toString() {
         return "Course{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
+                "description='" + description + '\'' +
+                ", authors=" + authors +
+                ", sections=" + sections +
                 '}';
     }
-
 }

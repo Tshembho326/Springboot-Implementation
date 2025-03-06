@@ -2,23 +2,14 @@ package com.Hotel.RoyalStar.Models;
 
 import jakarta.persistence.*;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.SuperBuilder;
 
-
-@Builder
+@EqualsAndHashCode(callSuper = true)
+@SuperBuilder
 @Entity
 @Table
-public class Resource {
-    @Id
-    @GeneratedValue(
-            strategy = GenerationType.AUTO,
-            generator = "resource_generator"
-    )
-    @SequenceGenerator(
-            name = "resource_generator",
-            sequenceName = "resource_generator",
-            allocationSize = 1
-    )
-    private Integer id;
+public class Resource extends BaseEntity{
     private String name;
     private int size;
 
@@ -36,22 +27,6 @@ public class Resource {
         this.size = size;
         this.url = url;
         this.lecture = lecture;
-    }
-
-    public Resource(int id, String name, int size, String url, Lecture lecture) {
-        this.id = id;
-        this.name = name;
-        this.size = size;
-        this.url = url;
-        this.lecture = lecture;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -81,7 +56,6 @@ public class Resource {
     @Override
     public String toString() {
         return "Resources{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", size=" + size +
                 ", url='" + url + '\'' +
