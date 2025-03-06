@@ -1,7 +1,11 @@
 package com.Hotel.RoyalStar.Models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 
+@Builder
+@AllArgsConstructor
 @Entity
 @Table
 public class Author {
