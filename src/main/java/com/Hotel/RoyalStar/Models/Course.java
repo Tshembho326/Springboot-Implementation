@@ -34,10 +34,10 @@ public class Course {
                     @JoinColumn(name = "author_id")
             }
     )
-    List<Author> authors;
+    private List<Author> authors;
 
     @OneToMany(mappedBy = "course")
-    List<Section> sections;
+    private List<Section> sections;
 
 
     public Course() {

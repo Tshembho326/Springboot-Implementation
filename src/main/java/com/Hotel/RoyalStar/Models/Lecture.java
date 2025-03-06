@@ -21,15 +21,21 @@ public class Lecture {
 
     private String name;
 
+    @ManyToOne
+    @JoinColumn(name = "section_id")
+    private Section section;
+
     public Lecture() {}
 
-    public Lecture(String name) {
+    public Lecture(String name, Section section) {
         this.name = name;
+        this.section = section;
     }
 
-    public Lecture(int id, String name) {
+    public Lecture(int id, String name, Section section) {
         this.id = id;
         this.name = name;
+        this.section = section;
     }
 
     public Integer getId() {

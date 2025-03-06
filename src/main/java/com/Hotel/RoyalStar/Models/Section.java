@@ -4,6 +4,8 @@ package com.Hotel.RoyalStar.Models;
 import jakarta.persistence.*;
 import lombok.Builder;
 
+import java.util.List;
+
 @Builder
 @Entity
 @Table
@@ -25,21 +27,26 @@ public class Section {
 
     @ManyToOne
     @JoinColumn(name = "course_id")
-    Course course;
+    private Course course;
+
+    @OneToMany(mappedBy = "section")
+    private List<Lecture> lectures;
 
     public Section() {}
 
-    public Section(String name, String sectionOrder, Course course) {
+    public Section(String name, String sectionOrder, Course course, List<Lecture> lectures) {
         this.name = name;
         this.sectionOrder = sectionOrder;
         this.course = course;
+        this.lectures = lectures;
     }
 
-    public Section(int id, String name, String sectionOrder, Course course) {
+    public Section(int id, String name, String sectionOrder, Course course, List<Lecture> lectures) {
         this.id = id;
         this.name = name;
         this.sectionOrder = sectionOrder;
         this.course = course;
+        this.lectures = lectures;
     }
 
     public Integer getId() {
