@@ -25,19 +25,25 @@ public class Resource {
     @Column(unique = true)
     private String url;
 
+    @OneToOne
+    @JoinColumn(name = "lecture_id")
+    private Lecture lecture;
+
     public Resource() {}
 
-    public Resource(String name, int size, String url) {
+    public Resource(String name, int size, String url, Lecture lecture) {
         this.name = name;
         this.size = size;
         this.url = url;
+        this.lecture = lecture;
     }
 
-    public Resource(int id, String name, int size, String url) {
+    public Resource(int id, String name, int size, String url, Lecture lecture) {
         this.id = id;
         this.name = name;
         this.size = size;
         this.url = url;
+        this.lecture = lecture;
     }
 
     public Integer getId() {

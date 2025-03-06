@@ -25,17 +25,23 @@ public class Lecture {
     @JoinColumn(name = "section_id")
     private Section section;
 
+    @OneToOne
+    @JoinColumn(name = "lecture_id")
+    private Resource resource;
+
     public Lecture() {}
 
-    public Lecture(String name, Section section) {
+    public Lecture(String name, Section section, Resource resource) {
         this.name = name;
         this.section = section;
+        this.resource = resource;
     }
 
-    public Lecture(int id, String name, Section section) {
+    public Lecture(int id, String name, Section section, Resource resource) {
         this.id = id;
         this.name = name;
         this.section = section;
+        this.resource = resource;
     }
 
     public Integer getId() {
