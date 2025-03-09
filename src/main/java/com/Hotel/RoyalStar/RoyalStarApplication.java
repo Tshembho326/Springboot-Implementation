@@ -9,25 +9,11 @@ import org.springframework.context.annotation.Bean;
 
 import java.net.Authenticator;
 
-@SpringBootApplication
-
+@SpringBootApplication(scanBasePackages = "com.Hotel.RoyalStar")
 public class RoyalStarApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RoyalStarApplication.class, args);
-	}
-
-	@Bean
-	public CommandLineRunner commandLineRunner (AuthorRepository authorRepository){
-		return args -> {
-			var author = Author.builder()
-					.firstName("Tshembho")
-					.lastName("Xivambu")
-					.age(21)
-					.email("xivambuntshembo@gmail.com")
-					.build();
-			authorRepository.save(author);
-		};
 	}
 
 }

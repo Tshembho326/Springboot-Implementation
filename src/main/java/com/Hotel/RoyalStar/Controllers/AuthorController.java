@@ -7,7 +7,7 @@ import com.Hotel.RoyalStar.Models.Author;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/author/")
+@RequestMapping("/api/authors")
 public class AuthorController {
 
     public final AuthorService authorService;
@@ -17,12 +17,12 @@ public class AuthorController {
         this.authorService = authorService;
     }
 
-    @GetMapping("all")
+    @GetMapping("/all")
     public List<Author> getAllAuthors() {
         return authorService.getAllAuthors();
     }
 
-    @GetMapping("{author_id}")
+    @GetMapping("/{author_id}")
     public Author getAuthor(
             @PathVariable("author_id") Integer authorId
     ) {
@@ -36,12 +36,12 @@ public class AuthorController {
         authorService.addAuthor(author);
     }
 
-    @DeleteMapping("{author_id}")
+    @DeleteMapping("/{author_id}")
     public void deleteAuthor(@PathVariable("author_id") Integer authorId) {
         authorService.deleteAuthor(authorId);
     }
 
-    @PutMapping("{author_id}")
+    @PutMapping("/{author_id}")
     public void updateAuthor(
             @PathVariable("author_id") Integer authorId,
             @RequestParam(required = false) String firstName,

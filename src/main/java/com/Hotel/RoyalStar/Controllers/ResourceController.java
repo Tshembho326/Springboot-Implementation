@@ -8,7 +8,7 @@ import com.Hotel.RoyalStar.Models.Resource;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/resources/")
+@RequestMapping("/api/resources/")
 public class ResourceController {
     public final ResourceService resourceService;
 

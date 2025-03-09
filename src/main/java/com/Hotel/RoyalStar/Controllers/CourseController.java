@@ -7,7 +7,7 @@ import com.Hotel.RoyalStar.Models.Course;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/courses/")
+@RequestMapping("/api/courses/")
 public class CourseController {
     private final CourseService courseService;
 
