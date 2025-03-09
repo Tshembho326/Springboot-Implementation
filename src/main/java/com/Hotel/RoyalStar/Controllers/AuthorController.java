@@ -17,7 +17,7 @@ public class AuthorController {
         this.authorService = authorService;
     }
 
-    @GetMapping
+    @GetMapping("all")
     public List<Author> getAllAuthors() {
         return authorService.getAllAuthors();
     }
