@@ -3,9 +3,11 @@ package com.Hotel.RoyalStar.Services;
 import com.Hotel.RoyalStar.Models.Lecture;
 import com.Hotel.RoyalStar.Repositories.LectureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class LectureService {
 
     private final LectureRepository lectureRepository;
