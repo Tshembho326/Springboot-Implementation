@@ -43,5 +43,6 @@ public class ResourceService {
         if (name != null) resource.setName(name);
         if (size != null) resource.setSize(size);
         if (url != null) resource.setUrl(url);
+        resourceRepository.save(resource);
     }
 }

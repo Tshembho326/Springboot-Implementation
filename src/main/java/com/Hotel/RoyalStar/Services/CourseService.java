@@ -45,5 +45,6 @@ public class CourseService {
         if (description != null && !description.trim().isEmpty()) {
             course.setDescription(description);
         }
+        courseRepository.save(course);
     }
 }

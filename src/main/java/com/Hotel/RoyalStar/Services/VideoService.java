@@ -33,7 +33,8 @@ public class VideoService {
 
     public void deleteVideo(Integer videoId) {
         boolean validation = videoRepository.existsById(videoId);
-        if (!validation) videoRepository.deleteById(videoId);
+        if (!validation) throw new IllegalArgumentException("Video not found with ID: " + videoId);
+        videoRepository.deleteById(videoId);
     }
 
     public void updateVideo(Integer videoId, String name, Integer size, String url, Integer length) {

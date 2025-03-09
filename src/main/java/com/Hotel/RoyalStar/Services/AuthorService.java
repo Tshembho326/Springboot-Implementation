@@ -47,5 +47,6 @@ public class AuthorService {
 
         if (email != null && email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) author.setEmail(email);
          else if (email != null) throw new IllegalArgumentException("Invalid email format: " + email);
+         authorRepository.save(author);
     }
 }

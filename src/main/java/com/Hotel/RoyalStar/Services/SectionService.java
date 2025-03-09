@@ -45,5 +45,6 @@ public class SectionService {
         );
         if (name != null) section.setName(name);
         if (order != null) section.setSectionOrder(order);
+        sectionRepository.save(section);
     }
 }

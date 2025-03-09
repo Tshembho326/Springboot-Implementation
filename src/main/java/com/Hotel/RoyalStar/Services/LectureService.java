@@ -42,5 +42,6 @@ public class LectureService {
                 () -> new IllegalArgumentException("Invalid Lecture")
         );
         if (name != null) lecture.setName(name);
+        lectureRepository.save(lecture);
     }
 }
